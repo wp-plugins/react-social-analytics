@@ -3,15 +3,15 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.0.0
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
 == Description ==
 
-React Social Analytics integrates social networks into your site in a few simple steps. Offer social sign-in and sharing features to your visitors to lower registration barriers and simplify sharing to social networks. 
+React Social Analytics integrates social networks into your site in a few simple steps. Offer social sign-in and sharing features to your visitors to lower registration barriers and simplify sharing to social networks.
 
-Use your personal dashboard at http://account.react.com to get more insight into who's visiting your blog or website! 
+Use your personal dashboard at http://account.react.com to get more insight into who's visiting your blog or website!
 
 # Official site
 
