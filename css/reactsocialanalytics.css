@@ -1,0 +1,101 @@
+.react-social-analytics-links form,
+.react-social-analytics-links form div,
+.react-social-analytics-like-message .active {
+	display: inline;
+}
+
+.react-social-analytics-like-link {
+	padding-left: 1.1em;
+	margin-right: .4em;
+	background-image: url(../images/thumb_up.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+.react-social-analytics-like-link.loading {
+	background-image: url(../images/loader.gif);
+}
+
+#content .react-social-analytics-like-message {
+	font-weight: bold;
+	margin-bottom: .6em;
+}
+
+.react-social-analytics-like-not-logged-in-message,
+.react-social-analytics-like-success-message,
+.react-social-analytics-like-message span {
+	display: none;
+}
+
+.react-social-analytics-done {
+	padding-left: 1.6em;
+	background: url(../images/tick.png) no-repeat 0 0;
+}
+
+#main .widget-area ul ul.react-social-providers {
+	margin-left: 0;
+}
+
+ul.react-social-providers {
+	padding: .9em 0;
+	margin: 0;
+	list-style-type: none;
+	overflow: auto;
+}
+
+ul.react-social-providers li {
+	float:left;
+	display: inline;
+}
+
+.react-social-providers.share {
+	padding-top:0;
+}
+
+.react-social-providers.share li {
+	padding:0;
+	margin: 0 0.5em 0 0;
+}
+
+.post .entry-utility {
+	margin-top: .8em;
+}
+
+#registerform h2,
+#loginform h2 {
+	font-size: 1.27em;
+	color: #21759B;
+}
+
+#react-social-credentials {
+	color: white;
+	font-family: "Trebuchet MS","sans-serif";
+	font-size: 11px;
+	font-style: normal;
+	padding: 0.1em 1.3em 0 0;
+	position: relative;
+	text-align: right;
+	text-shadow: 0 0 2px black;
+	z-index: 1010;
+}
+
+#react-social-credentials a {
+	color: white;
+	text-decoration: none;
+}
+
+#react-social-credentials a:hover {
+	text-decoration: underline;
+}
+
+div.social-error {
+	background-color: #ffebe8;
+	border-color: #c00;
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;	
+}

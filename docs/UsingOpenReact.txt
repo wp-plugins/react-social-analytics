@@ -1,0 +1,16 @@
+*How to use OpenReact classes*
+
+To be able to use OpenReact classes, you need to register the OpenReact class 
+autoloaders via the OpenReact_Autoload::register() method.
+
+A very simple way (PHP example code):
+
+<?php
+require_once '{where you have installed the OpenReact library}/OpenReact/Autoload.php';
+
+React_Autoload::register();
+?>
+
+Note: Even if you already have a class-loader which can find OpenReact classes,
+you still need to call the OpenReact_Autoload::register() method for initialization 
+of the OpenReact exception auto-creation. 

@@ -1,0 +1,188 @@
+/* share popup */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#react-social {
+	font-size: 12px;
+	background: white;
+	padding: 1em 3em;
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#react-social h1 {
+	font-size: 230%;
+	color: #333;
+	font-weight: bold;
+	text-align: center;
+}
+
+#share-message {
+	font-family: Verdana, sans-serif;
+	border: 1px solid #bbb;
+	font-size: 1.25em;
+	width: 97%;
+	padding: .5em;
+	color: black;
+	min-height: 6em;
+}
+
+#share-message:focus {
+	border-color: #666;
+}
+
+#share-message[disabled] {
+	background: #fefefe;
+	color: #777;
+}
+
+#react-social fieldset {
+	border-radius: .75em;
+	-moz-border-radius: .75em;
+	-webkit-border-radius: .75em;
+	background: #E6E6E6;
+	border: 0;
+	padding: 1.4em 1.7em;
+	margin: 1em 0;
+}
+
+#react-social dd,
+#react-social dl {
+	margin: 0;
+}
+
+#react-social dt {
+	padding: 0 0 .7em .7em;
+}
+
+#react-social dt label {
+	text-shadow: 1px 1px 0 white;
+	font-size: 150%;
+}
+
+#react-social dl p {
+	margin: .3em 0 0 .7em;
+	text-shadow: 0px 1px 0px white;
+}
+
+#share-submit-wrapper {
+	text-align: center;
+	margin: 1.5em 0;
+}
+
+#share-button {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #a4a4a4;
+	font-size: 150%;
+	background: transparent url(../images/bg-submit-gradient.png) repeat-x left top;
+	padding: .08em 1em;
+	text-shadow: 1px 1px 0 white;
+	color: #333;
+}
+
+#socialmedia-networks {
+	width: 100%;
+	overflow: hidden;
+}
+
+#socialmedia-networks ul {
+	list-style: none;
+	margin: 1em 0 0;
+	float: left;
+	left: 50%;
+	position: relative;
+}
+
+#socialmedia-networks li {
+	background: none;
+	float: left;
+	text-align: center;
+	position: relative;
+	right: 50%;
+	margin: 0 3px 1px 3px;
+	padding: 0 0 2px 0;
+}
+
+#socialmedia-networks label {
+	display: block;
+	width: 80px;
+	color: #333;
+	opacity: .5;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#socialmedia-networks a:hover,
+#socialmedia-networks .selected a,
+#socialmedia-networks label:hover,
+#socialmedia-networks .selected label,
+#socialmedia-networks .connected a {
+	opacity: 1;
+}
+
+#socialmedia-networks .react-social-analytics-network-icon {
+	overflow: visible;
+	height: auto;
+	margin: auto;
+	width: 48px;
+}
+
+#socialmedia-networks .more {
+	text-align: center;
+	clear: both;
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+#socialmedia-networks .name {
+	display: inline;
+}
+
+#socialmedia-networks .provider-checkbox {
+	display: none;
+}
+
+#socialmedia-networks .more .react-social-analytics-network-icon {
+	cursor: pointer;
+	padding-left: 1.8em;
+	font-size: 0.917em; /* 11px */
+	padding-top: 0.25em;
+	display: inline;
+}
+
+#socialmedia-networks .more .react-social-analytics-network-icon:hover {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+#socialmedia-networks .more label.form-error {
+	display: inline;
+	width: auto;
+	opacity: 1;
+	color: #B40000;
+}
+
+#socialmedia-networks p {
+	text-align: center;
+	color: grey;
+	font-style: italic;
+	margin-top: 1em;
+}
+
+#react-social-share-result {
+	text-align: center;
+}
+
+#ajax-indicator {
+	vertical-align: sub;
+	margin-right: 6px;
+}
+
+#react-social-share-success {
+	font-size: 150%;
+}

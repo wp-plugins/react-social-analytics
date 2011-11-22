@@ -1,0 +1,8 @@
+#socialmedia-networks .react-social-analytics-network-icon {
+	filter: alpha(opacity=50);
+}
+
+#socialmedia-networks .selected .react-social-analytics-network-icon,
+#socialmedia-networks li:hover .react-social-analytics-network-icon {
+	filter: alpha(opacity=100);
+}
