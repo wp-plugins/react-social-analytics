@@ -529,7 +529,14 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 
 		try
 		{
-			$result = $this->_client->OAuthServer->tokenRequest($data['provider'], $this->getDefaultUrl().'?action=accessToken');
+			$defaultUrl = $this->getDefaultUrl();
+
+			// If the default URL is a host-only (no path), then add a '/' because facebook does not allow redirects without a path
+			$urlData = parse_url($defaultUrl);
+			if (!isset($urlData['path']) || $urlData['path'] = '')
+				$defaultUrl = $defaultUrl . '/';
+
+			$result = $this->_client->OAuthServer->tokenRequest($data['provider'], $defaultUrl . '?action=accessToken');
 		}
 		catch (Exception $e)
 		{

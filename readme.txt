@@ -3,7 +3,7 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 1.0.0
+Stable Tag: 1.0.1.0
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
@@ -13,11 +13,11 @@ React Social Analytics integrates social networks into your site in a few simple
 
 Use your personal dashboard at http://account.react.com to get more insight into who's visiting your blog or website!
 
-# Official site
+= Official site =
 
 Visit React.com (http://react.com) if you're looking for more information or have any (support) questions. Register and manage your account at https://account.react.com .
 
-# Services
+= Services =
 
 OAuth service: Adds buttons to register and login using a social network such as Facebook, Twitter and LinkedIn. This makes it very easy for new users to register. More users for your site!
 
@@ -25,7 +25,7 @@ Like service: Adds a like button to articles to let people vote for it.
 
 Share service: Let your users easily share any article on any of their social networks. You can even share on multiple networks in one go. URLs are automaticly shortened and tracked.
 
-# Supported social networks
+= Supported social networks =
 
 Currently, React.com supports 10 different (inter)national social networks:
 
@@ -63,7 +63,11 @@ http://react.com
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0.0 =
 Initial release.
+
+= 1.0.1.0 =
+
+* Fixed an issue with Facebook not supporting Site URLs without paths 
 
 == Upgrade Notice ==
