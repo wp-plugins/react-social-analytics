@@ -5,7 +5,7 @@
 Plugin Name:	React Social Analytics
 Plugin URI:		http://react.com/
 Description:	Plugin to integrate social networks into Wordpress, making your blog more personal and social. As a bonus, you get more insight in who visits your site.
-Version:		1.0
+Version:		1.0.0.0
 Author:			React.com
 Author URI:		http://react.com/
 License:		Simplified BSD License
