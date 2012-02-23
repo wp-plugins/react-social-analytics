@@ -479,12 +479,22 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 	{
 		$providers = $GLOBALS['HtmlHelper']->listProviders('connectAny');
 
-		if(false === $providers)
+		if (false === $providers)
 			return;
 
-		// add social connect list
-		_e('<h2>Register using a social network!</h2>', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN);
-		echo $providers;
+		// always hide original 'A password will be e-mailed to you.' message, we show a similar message in the proper location if necessary
+		print '<style type="text/css">#reg_passmail {display:none;}</style>';
+
+		// do not show providers if plugin already used to select a provider
+		if (empty($_GET['reactsocialanalyticsprovider']))
+		{
+			echo '<p id="reg_passmail2">';
+			_e('A password will be e-mailed to you.');
+			echo '</p><br />';
+
+			_e('<h2>Or register using a social network!</h2>', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN);
+			echo $providers;
+		}
 
 		// suggest name
 		if (isset($_GET['reactsocialanalyticsusername']))
@@ -1175,11 +1185,16 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 
 	public function hookAdminInit()
 	{
-		if ((empty($this->_config['reactApplicationKey']) || empty($this->_config['reactApplicationSecret'])))
+		if (!get_option('users_can_register'))
+		{
+			$this->_adminErrors[] = __('<strong>React Social Analytics:</strong> User registration is disabled in your wordpress install, please <a href="'. admin_url('options-general.php') .'">enable it here</a> (toggle \'Membership\' option), or the React Social Analytics plugin cannot work!', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN);
+		}
+
+		if (empty($this->_config['reactApplicationKey']) || empty($this->_config['reactApplicationSecret']))
 		{
 			if ($GLOBALS['plugin_page'] != self::MENU_SLUG)
 			{
-				$this->_adminNotices[] = sprintf(__(
+				$this->_adminErrors[] = sprintf(__(
 					'<strong>React Social Analytics:</strong> Almost done! Complete your configuration by entering your application key and secret at <a href="%s">the plugin settings page</a>.',
 					REACT_SOCIAL_ANALYTICS_TEXTDOMAIN),
 					admin_url() . 'options-general.php?page=' . self::MENU_SLUG
@@ -1187,13 +1202,12 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 			}
 			else
 			{
-				$this->_adminNotices[] = __('<strong>React Social Analytics:</strong> Almost done! Complete your configuration by entering your application key and secret, which you can obtain at <a href="https://account.react.com">account.react.com</a>.', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN);
+				if (empty($_REQUEST['react']) || empty($_REQUEST['react']['reactApplicationKey']) || empty($_REQUEST['react']['reactApplicationKey']))
+					$this->_adminErrors[] = sprintf(
+						__('<strong>React Social Analytics:</strong> Almost done! Complete your configuration by entering your application key and secret, which you can obtain at <a href="%s" target="_blank">account.react.com</a>.', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN),
+						REACT_SOCIAL_ANALYTICS_ACCOUNT_URL
+					);
 			}
-		}
-
-		if (!get_option('users_can_register'))
-		{
-			$this->_adminErrors[] = __('<strong>React Social Analytics:</strong> User registration is disabled in your wordpress install, please <a href="'. admin_url('options-general.php') .'">enable it here</a> (toggle \'Membership\' option), or the React Social Analytics plugin cannot work!', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN);
 		}
 
 		if (get_option('reactRedirectAfterActivate', false))

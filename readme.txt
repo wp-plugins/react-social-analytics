@@ -3,7 +3,7 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable Tag: 1.0.1.0
+Stable tag: 1.0.2.0
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
@@ -68,6 +68,12 @@ Initial release.
 
 = 1.0.1.0 =
 
-* Fixed an issue with Facebook not supporting Site URLs without paths 
+* Fixed an issue with Facebook not supporting Site URLs without paths
+
+= 1.0.2.0 =
+
+* Made some messages in the admin stand out more
+* Tweaked code so that it is backward compatible with PHP 5.2
+* Registration page messages tweaked
 
 == Upgrade Notice ==

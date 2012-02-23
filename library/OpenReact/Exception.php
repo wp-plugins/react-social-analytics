@@ -17,6 +17,7 @@
 	Exception class for usage by OpenReact classes.
 	Add message parameters plus exception 'autocreation'.
 */
+
 class OpenReact_Exception extends Exception
 {
 	/**
@@ -25,15 +26,19 @@ class OpenReact_Exception extends Exception
 		Parameters:
 			message - (string) Exception message, also supports printf() formatting with the second parameters
 			params - (array) Parameters for insertion in the message
-			cause - (Exception|null) Exception which 'caused' this exception
+			previous - (Exception|null) Exception which 'caused' this exception
 			code - (int) Error/exception code
 	*/
-	public function __construct($message, array $params = array(), $cause = null, $code = 0)
+	public function __construct($message, array $params = array(), $previous = null, $code = 0)
 	{
 		if (false !== strpos($message, '%s') && is_array($params) && !empty($params))
 			$message = vsprintf($message, $params);
 
-		parent::__construct($message, $code, $cause);
+		// PHP 5.2 is still supported, but doesn't feature the $previous parameter
+		if (isset($previous) && $previous instanceof Exception && version_compare(PHP_VERSION, '5.3.0') >= 0)
+			parent::__construct($message, $code, $previous);
+		else
+			parent::__construct($message, $code);
 	}
 
 	/**

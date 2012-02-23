@@ -25,8 +25,8 @@ if(!empty($cacheConfig) && $cacheConfig['pgcache.cache.query'] === true)
 
 	<form method="post" action="<?php echo get_option('siteurl') . '/wp-admin/options-general.php?page=reactSocialAnalyticsOptions';?>">
 		<h3>Application</h3>
-		<p><strong>Looking for keys?</strong> Log in at <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>">account.react.com</a> and click the name of your application in the applications section.</p>
-		<p><strong>Don't have an account yet?</strong> <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>signup" >Create one now</a>.</p>
+		<p><strong>Looking for keys?</strong> Log in at <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>" target="_blank">account.react.com</a> and click the name of your application in the applications section.</p>
+		<p><strong>Don't have an account yet?</strong> <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>signup" target="_blank">Create one now</a>.</p>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row"><label for="reactApplicationKey">Key</label></th>
@@ -57,7 +57,7 @@ if(!empty($cacheConfig) && $cacheConfig['pgcache.cache.query'] === true)
 		</table>
 
 		<h3>Endpoints</h3>
-		<p>All endpoints can be found in <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>docs">our documentation</a>.</p>
+		<p>All endpoints can be found in <a href="<?php echo REACT_SOCIAL_ANALYTICS_ACCOUNT_URL; ?>docs" target="_blank">our documentation</a>.</p>
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row"><label for="reactOAuthServiceEndpoint">OAuth service URL</label></th>
