@@ -97,5 +97,41 @@ div.social-error {
 	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	border-radius: 3px;	
+	border-radius: 3px;
+}
+
+/*
+	Fix for Wordpress 3.3, which introduced a z-index of 9999 for the #branding header in the default theme
+	Added a '0' to all React Share fancybox z-indexes to overload.
+	</z-index-fight>
+*/
+#fancybox-loading {
+	z-index: 11040;
+}
+#fancybox-overlay {
+	z-index: 11000;
+}
+#fancybox-wrap {
+	z-index: 11010;
+}
+#fancybox-content {
+	z-index: 11020;
+}
+#fancybox-hide-sel-frame {
+	z-index: 11010;
+}
+#fancybox-close {
+	z-index: 11030;
+}
+#fancybox-left, #fancybox-right {
+	z-index: 11020;
+}
+#fancybox-left-ico, #fancybox-right-ico {
+	z-index: 11020;
+}
+.fancybox-bg {
+	z-index: 10010;
+}
+#react-social-credentials {
+	z-index: 10010;
 }
