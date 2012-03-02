@@ -63,6 +63,20 @@ class OpenReact_XmlRpc_ServicesClient extends OpenReact_XmlRpc_Client
 	}
 
 	/**
+	 	Set string to append to the User-Agent header of all requests
+
+	 	Parameters:
+	 		suffix - (string) Extra User-Agent contents
+	*/
+	public function setUserAgentSuffix($suffix)
+	{
+		parent::setUserAgentSuffix($suffix);
+
+		foreach ($this->_serviceClients as $client)
+			$client->setUserAgentSuffix($suffix);
+	}
+
+	/**
 	 	Execute an XML-RPC call to the endpoint.
 
 	 	Parameters:
@@ -119,7 +133,15 @@ class OpenReact_XmlRpc_ServicesClient extends OpenReact_XmlRpc_Client
 	protected function _buildRequest($method, array $parameters = array())
 	{
 		if ($this->_defaultService != 'System' && $this->_prependAuthentication)
+		{
+			// Do not even try to build requests with missing authentication
+			// Last line of defence, please check authentication config in your own code
+			foreach ($this->_prependAuthentication as $param)
+				if (empty($param))
+					throw new OpenReact_XmlRpc_ServicesClient_InvalidAuthenticationException('Empty authentication param found, please check $prependAuthentication param of constructor.');
+
 			$parameters = array_merge($this->_prependAuthentication, $parameters);
+		}
 
 		$method = (isset($this->_defaultService) ? $this->_defaultService .'.' : '') . $method;
 

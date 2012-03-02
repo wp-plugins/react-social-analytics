@@ -30,12 +30,12 @@ if(!empty($cacheConfig) && $cacheConfig['pgcache.cache.query'] === true)
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row"><label for="reactApplicationKey">Key</label></th>
-				<td><input name="react[reactApplicationKey]" type="text" id="reactApplicationKey" value="<?php echo get_option('reactApplicationKey')?>" class="regular-text" style="width:40em;"/></td>
+				<td><input name="react[reactApplicationKey]" type="text" id="reactApplicationKey" value="<?php echo get_option('reactApplicationKey')?>" class="regular-text" style="width:40em;" required /></td>
 			</tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="reactApplicationSecret">Secret</label></th>
-				<td><input name="react[reactApplicationSecret]" type="password" id="reactApplicationSecret" value="<?php echo get_option('reactApplicationSecret')?>" class="regular-text" style="width:40em;"/></td>
+				<td><input name="react[reactApplicationSecret]" type="password" id="reactApplicationSecret" value="<?php echo get_option('reactApplicationSecret')?>" class="regular-text" style="width:40em;" required /></td>
 			</tr>
 			<tr>
 				<th>Connected</th>

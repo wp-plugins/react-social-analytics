@@ -168,7 +168,9 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 
 	public function isEnabled()
 	{
-		return (null !== $this->getSettings());
+		$settings = $this->getSettings();
+
+		return (is_array($settings) && !empty($settings['applicationKey']) && !empty($settings['applicationSecret']));
 	}
 
 	private function _initSettings()
@@ -177,6 +179,12 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 		{
 			$this->_config[$configKey] = get_option($configKey);
 		}
+	}
+
+	protected function _initClient()
+	{
+		parent::_initClient();
+		$this->_client->setUserAgentSuffix('Wordpress/'.$GLOBALS['wp_version'].' OpenReact-Plugin/'.REACT_SOCIAL_ANALYTICS_VERSION);
 	}
 
 	public function getClient()
@@ -849,6 +857,11 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 		$this->_initClient();
 
 		$serviceErrors = array();
+
+		if (empty($this->_config['reactApplicationKey']) || empty($this->_config['reactApplicationSecret']))
+		{
+			return array(__('Please fill in key and secret first.', REACT_SOCIAL_ANALYTICS_TEXTDOMAIN));
+		}
 
 		try
 		{

@@ -25,6 +25,9 @@ class OpenReact_XmlRpc_Client
 
 	/** (string) Endpoint URL of the XML-RPC service */
 	protected $_endpoint;
+	/** (string|null) Optional string to append to User-Agent header */
+	protected $_userAgentSuffix;
+
 
 	/**
 		Construct the XML-RPC client.
@@ -35,6 +38,23 @@ class OpenReact_XmlRpc_Client
 	public function __construct($endpoint)
 	{
 		$this->_endpoint = $endpoint;
+	}
+
+	/**
+	 	Set string to append to the User-Agent header of all requests
+
+	 	Parameters:
+	 		suffix - (string) Extra User-Agent contents
+	*/
+	public function setUserAgentSuffix($suffix)
+	{
+		if (is_null($suffix))
+		{
+			$this->_userAgentSuffix = null;
+			return;
+		}
+
+		$this->_userAgentSuffix = trim(str_replace(array("\r", "\n"), '', $suffix));
 	}
 
 	/**
@@ -129,9 +149,13 @@ class OpenReact_XmlRpc_Client
 
 		$body = $methodCall->asXml();
 
+		$userAgent = 'OpenReact-XmlRpcClient/' . self::VERSION;
+		if (isset($this->_userAgentSuffix))
+			$userAgent .= ' ' . $this->_userAgentSuffix;
+
 		$headers = array(
 			'Host' 				=> $endpoint['host'],
-			'User-Agent'		=> 'OpenReact/XmlRpcClient ' . self::VERSION,
+			'User-Agent'		=> $userAgent,
 			'Content-Type'		=> 'text/xml;chartype='. self::ENCODING,
 			'Content-Length' 	=> strlen($body),
 		);
