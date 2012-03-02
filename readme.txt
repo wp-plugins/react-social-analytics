@@ -3,7 +3,7 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: {stable-version}
+Stable tag: 1.0.3.1
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
