@@ -3,7 +3,7 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 1.0.3.1
+Stable tag: {stable-version}
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
@@ -80,5 +80,10 @@ Initial release.
 
 * Don't try to connect to the services if no React application key/secret is set
 * Adjusted user agent for XML-RPC requests to include wordpress and plugin version
+* Adjust share overlay to overlay over banner in the default WP 3.3 theme
+
+= 1.0.3.1 =
+
+* Adjust share overlay to overlay over banner in the default WP 3.3 theme
 
 == Upgrade Notice ==
