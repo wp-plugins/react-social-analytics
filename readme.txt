@@ -80,10 +80,9 @@ Initial release.
 
 * Don't try to connect to the services if no React application key/secret is set
 * Adjusted user agent for XML-RPC requests to include wordpress and plugin version
-* Adjust share overlay to overlay over banner in the default WP 3.3 theme
 
 = 1.0.3.1 =
 
-* Adjust share overlay to overlay over banner in the default WP 3.3 theme
+* Adjust share overlay to also cover brand header in the default WP 3.3 theme
 
 == Upgrade Notice ==
