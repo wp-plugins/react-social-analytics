@@ -11,7 +11,7 @@
 	obtain it through the world-wide-web, please send an email
 	to openreact-license@react.com so we can send you a copy immediately.
 
-	Copyright (c) 2011 React B.V. (http://www.react.com)
+	Copyright (c) 2012 React B.V. (http://www.react.com)
 */
 class OpenReact_SocialConnector_Helper_Html
 {

@@ -11,7 +11,7 @@
 	obtain it through the world-wide-web, please send an email
 	to openreact-license@react.com so we can send you a copy immediately.
 
-	Copyright (c) 2011 React B.V. (http://www.react.com)
+	Copyright (c) 2012 React B.V. (http://www.react.com)
 */
 /**
 	Manages multiple XML-RPC service endpoints, mapping services to easily accessable objects for each endpoint.
@@ -86,17 +86,17 @@ class OpenReact_XmlRpc_ServicesClient extends OpenReact_XmlRpc_Client
 	 	Returns:
 	 		(mixed) The return value
 	*/
-	public function __call($method, $parameters)
+	public function __call($methodName, array $parameters = array())
 	{
 		if (!$this->_defaultService)
 		{
-			if (preg_match('~^([^\.]+)\.([^\.]+)$~i', $method, $match))
+			if (preg_match('~^([^\.]+)\.([^\.]+)$~i', $methodName, $match))
 				return $this->{$match[1]}->__call($match[2], $parameters);
 
 			throw new OpenReact_XmlRpc_ServicesClient_NoDefaultServiceException('No default service configured, please call a sub-service.');
 		}
 
-		return parent::__call($method, $parameters);
+		return parent::__call($methodName, $parameters);
 	}
 
 

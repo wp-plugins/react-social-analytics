@@ -11,7 +11,7 @@
 	obtain it through the world-wide-web, please send an email
 	to openreact-license@react.com so we can send you a copy immediately.
 
-	Copyright (c) 2011 React B.V. (http://www.react.com)
+	Copyright (c) 2012 React B.V. (http://www.react.com)
 */
 // Wordpress applies add_magic_quotes, so we must always strip
 define('SOCIALCONNECTOR_FORCE_STRIPSLASHES', true);
@@ -474,7 +474,7 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 
 	public function hookLoginForm()
 	{
-		$providers = $GLOBALS['HtmlHelper']->listProviders('connectAny');
+		$providers = get_react_social_html_helper()->listProviders('connectAny');
 
 		if(false === $providers)
 			return;
@@ -485,7 +485,7 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 
 	public function hookRegisterForm()
 	{
-		$providers = $GLOBALS['HtmlHelper']->listProviders('connectAny');
+		$providers = get_react_social_html_helper()->listProviders('connectAny');
 
 		if (false === $providers)
 			return;
@@ -671,7 +671,7 @@ class OpenReact_SocialConnector_Wordpress extends OpenReact_SocialConnector_Appl
 		}
 
 		// Available in share-tag.tpl.php
-		$shareProviders = $GLOBALS['HtmlHelper']->listProviders('share', array('url' => $url));
+		$shareProviders = get_react_social_html_helper()->listProviders('share', array('url' => $url));
 
 		if(!$echo)
 		{

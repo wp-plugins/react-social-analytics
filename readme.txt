@@ -3,7 +3,7 @@ Contributors: React.com
 Tags: social, analytics, login, register, facebook, twitter, hyves, linkedin, google, like button, oauth
 Requires at least: 3.1
 Tested up to: 3.4
-Stable tag: 1.0.3.2
+Stable tag: 1.0.4.0
 
 Integrate social networks into your site, making it more personal and social. As a bonus, you get more insight in who visits your site.
 
@@ -84,5 +84,10 @@ Initial release.
 = 1.0.3.1 =
 
 * Adjust share overlay to also cover brand header in the default WP 3.3 theme
+
+= 1.0.4.0 =
+
+* Improved compatibility with `W3 total cache` and many other plugins
+* Updated copyright year
 
 == Upgrade Notice ==

@@ -11,7 +11,7 @@
 	obtain it through the world-wide-web, please send an email
 	to openreact-license@react.com so we can send you a copy immediately.
 
-	Copyright (c) 2011 React B.V. (http://www.react.com)
+	Copyright (c) 2012 React B.V. (http://www.react.com)
 */
 
 require_once (dirname(__FILE__) . '/config/config.php');
@@ -21,7 +21,7 @@ session_start();
 
 define('REACT_SOCIAL_ANALYTICS_APPLICATION_PATH', dirname(__FILE__));
 
-define('REACT_SOCIAL_ANALYTICS_APPLICATION_URL', WP_PLUGIN_URL . '/' . REACT_SOCIAL_PLUGIN_ROOT_FOLDER_NAME . $config['urlSuffix']);
+define('REACT_SOCIAL_ANALYTICS_APPLICATION_URL', WP_PLUGIN_URL . '/' . REACT_SOCIAL_PLUGIN_ROOT_FOLDER_NAME . $reactConfig['urlSuffix']);
 define('REACT_SOCIAL_ANALYTICS_DEFAULT_OAUTHSERVICE_URL', 'https://social.react.com/XmlRpc_v2');
 define('REACT_SOCIAL_ANALYTICS_DEFAULT_SHARESERVICE_URL', 'https://share.react.com/XmlRpc_v2');
 define('REACT_SOCIAL_ANALYTICS_DEFAULT_LIKESERVICE_URL', 'https://like.react.com/XmlRpc_v2');
@@ -29,29 +29,38 @@ define('REACT_SOCIAL_ANALYTICS_ACCOUNT_URL', 'https://account.react.com/');
 define('REACT_SOCIAL_ANALYTICS_TEXTDOMAIN', 'React_SocialAnalyticsPlugin');
 
 // Traverse all directories in the directory of entry; this enables support for symlinked plugins
-$wpPath = dirname($_SERVER['SCRIPT_FILENAME']);
-while (!file_exists($wpPath . DIRECTORY_SEPARATOR . 'wp-load.php') && (DIRECTORY_SEPARATOR != $wpPath))
-	$wpPath = dirname($wpPath);
+$reactWpPath = dirname($_SERVER['SCRIPT_FILENAME']);
+while (!file_exists($reactWpPath . DIRECTORY_SEPARATOR . 'wp-load.php') && (DIRECTORY_SEPARATOR != $reactWpPath))
+	$reactWpPath = dirname($reactWpPath);
 
-require_once ($wpPath . DIRECTORY_SEPARATOR . 'wp-load.php');
+require_once ($reactWpPath . DIRECTORY_SEPARATOR . 'wp-load.php');
+unset($reactWpPath);
 
 // Enable OpenReact autoloader
-require_once ($config['autoloaderClassFile']);
-OpenReact_Autoload::register($config['autoloaderLibrary']);
+require_once ($reactConfig['autoloaderClassFile']);
+OpenReact_Autoload::register($reactConfig['autoloaderLibrary']);
 
-// HtmlHelper for global use
-$HtmlHelper = new OpenReact_SocialConnector_Helper_Html();
 // Construct plugin, which will add all the Wordpress hooks
-$React_SocialAnalyticsPlugin = new OpenReact_SocialConnector_Wordpress();
+get_react_social_analytics_plugin();
 
 function get_react_social_analytics_plugin()
 {
-	return $GLOBALS['React_SocialAnalyticsPlugin'];
+	static $instance = null;
+
+	if (!isset($instance))
+		$instance = new OpenReact_SocialConnector_Wordpress();
+
+	return $instance;
 }
 
 function get_react_social_html_helper()
 {
-	return $GLOBALS['HtmlHelper'];
+	static $instance = null;
+
+	if (!isset($instance))
+		$instance = new OpenReact_SocialConnector_Helper_Html();
+
+	return $instance;
 }
 
 /**
